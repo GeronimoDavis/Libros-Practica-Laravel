@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Transacciones - Gestor de Gastos</title>
+    <title>Books</title>
 </head>
 <body>  
 
     <h1>Lista de Libros</h1>
 
-    <a href="{{ route('books.store') }}">
+    <a href="{{ route('books.create') }}">
         <button type="button">Nuevo Registro</button>
     </a>
 
@@ -39,7 +39,11 @@
                         <td>{{$book->price}}</td>
                         <td>{{$book->author->name}}</td>
                         <td>{{$book->category->name}}</td>
-                        <td>action</td>
+                        <td>
+                            <a href="{{ route('sales.index', $book->book_id) }}">
+                            <button type="button">Visualizar Ventas</button>
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
         </tbody>
